@@ -32,6 +32,17 @@
     	<property name="rootLoggerLevel" value="FINE" />
     	<property name="printedLoggerLevel" value="FINE"/>
     </bean>
+    
+    <bean id="myCricketCoach"
+    	class="com.mycompany.springdemo.CricketCoach">
+    		
+ 		<!-- set up setter injection 
+ 			This will call 'setFortuneService' in CricketCoach class
+ 		-->
+    	<property name="fortuneService" ref="myFortune" />
+    
+    </bean>
+    	
 
     
       <!-- define the dependency --> 
