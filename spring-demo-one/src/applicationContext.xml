@@ -9,6 +9,10 @@
 
 	
     <!-- Define your beans here -->
+    
+    <!-- load the properties file:sport.properties  --> 	
+	<context:property-placeholder location="classpath:sport.properties"/>
+    
    
    <bean id="myFortune"
     		class="com.mycompany.springdemo.HappyFortuneService">
@@ -35,15 +39,20 @@
     
     <bean id="myCricketCoach"
     	class="com.mycompany.springdemo.CricketCoach">
+    	
     		
  		<!-- set up setter injection 
  			This will call 'setFortuneService' in CricketCoach class
  		-->
     	<property name="fortuneService" ref="myFortune" />
+    	
+    	<!--Inject literal values by calling the setters for each data members -->
+    	<property name="email" value="${foo.email}"/>
+    	<property name="team" value="${foo.team}"/>
     
     </bean>
-    	
-
+    
+   
     
       <!-- define the dependency --> 
     
