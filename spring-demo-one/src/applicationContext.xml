@@ -9,31 +9,37 @@
 
 	
     <!-- Define your beans here -->
+   
+   <bean id="myFortune"
+    		class="com.mycompany.springdemo.HappyFortuneService">
+    		
+    </bean> 
     
-    <!-- define the dependency 
-    <bean id="myFortuneService"
-    		class="com.luv2code.springdemo.HappyFortuneService">
-    	</bean>
-    -->
- 	<bean id="myCoach"
- 		class="com.mycompany.springdemo.BaseballCoach">	 		
+    <bean id="myCoach"
+ 		class="com.mycompany.springdemo.TrackCoach">
+ 		
+ 			
+ 		<!-- set up constructor injection -->
+   		<constructor-arg ref="myFortune" /> 		
  	</bean>
  	
  	<!-- 
 	Add a logger config to see logging messages.		
 	- For more detailed logs, set values to "FINEST"
 	- For info on logging levels, see: http://www.vogella.com/tutorials/Logging/article.html
- -->
+ 	-->
     <bean id="myLoggerConfig" class="com.mycompany.springdemo.MyLoggerConfig" init-method="initLogger">
     	<property name="rootLoggerLevel" value="FINE" />
     	<property name="printedLoggerLevel" value="FINE"/>
     </bean>
 
-    <!--
-    <bean id="myCoach"
-        class="com.luv2code.springdemo.BaseballCoach">         
-    </bean>
-    -->
+    
+      <!-- define the dependency --> 
+    
+    
+  
+   	
+ 	
 
 </beans>
 
